@@ -9,39 +9,33 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body {
-      background-color: #F5E6CA; /* Background utama */
-      color: #4B3832; /* Text utama */
+      background-color: #0D1117; /* Background utama */
+      background: linear-gradient(180deg,#0D1117,#020617);
+      color: #E6EDF3; /* Text utama */
       font-family: 'Poppins', sans-serif;
     }
-    /* Sidebar */
-    .sidebar {
-      min-height: 100vh;
-      background: #343a40;
-      color: #fff;
-      position: fixed;
-      width: 250px;
-      padding-top: 20px;
+    .navbar{
+      background-color:#161B22 !important;
     }
-    .sidebar a {
-      color: #fff;
-      display: block;
-      padding: 10px 15px;
-      text-decoration: none;
+    .nav-link{
+      color: white !important;
     }
-    .sidebar a:hover {
-      background: #495057;
+    .nav-link:hover{
+      color: #3b58ff !important;
     }
+    h1 span{
+      color:#58A6FF;
+    }
+    section{
+      padding:80px 0;
+    }
+
     /* Content wrapper */
     .content {
-      margin-left: 250px;
+      margin-left: 200px;
       padding: 20px;
     }
     @media (max-width: 768px) {
-      .sidebar {
-        position: relative;
-        width: 100%;
-        min-height: auto;
-      }
       .content {
         margin-left: 0;
       }
@@ -52,6 +46,8 @@
       overflow: hidden;
       border-radius: 15px;
       transition: transform 0.3s ease-in-out;
+      background:#161B22;
+      border:none;
     }
     .project-card img {
       width: 100%;
@@ -59,7 +55,9 @@
       transition: transform 0.3s ease;
     }
     .project-card:hover img {
-      transform: scale(1.05);
+      /* transform: scale(1.05); */
+      transform:translateY(-10px);
+      box-shadow:0 15px 35px rgba(88,166,255,0.25);
     }
     .project-img {
       width: 100%;
@@ -92,36 +90,55 @@
     .modal-body p {
     text-align: justify;
     text-justify: inter-word; 
-  }
+    }
+    .modal-content{
+      background:#161B22;
+      color:#E6EDF3;
+      border:none;
+    }
+    #contact .card{
+      background:#161B22;
+      color:#E6EDF3;
+      border:none;
+      margin:auto;
+      }
   </style>
 </head>
 <body>
   <div class="container-fluid">
     <div class="row">
-      <!-- Sidebar -->
-      <nav class="col-md-3 col-lg-2 sidebar">
-        <a href="#" class="h4 text-center">My Portfolio</a>
-        <a href="#about">About Me</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">My Portfolio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#about">About Me</a>
+              <a class="nav-link" href="#skills">Skills</a>
+              <a class="nav-link" href="#projects">Projects</a>
+              <a class="nav-link" href="#contact">Contact</a>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <!-- Content -->
       <main class="col-md-9 col-lg-10 content">
-        <h1 class="mb-4">Welcome to My Portfolio</h1>
 
         <!-- About -->
-        <section id="about" class="mb-5 pt-2">
-          <h2>About Me</h2>
-          <div class="row align-items-center">
+        <section id="about" class="mb-5 pt-2 py-5">
+          <div class="row align-items-center pt-5">
             
             <div class="col-md-4 text-center mb-3 mb-md-0">
               <img src="PP.jpg" alt="Profile Photo" class="w-50 img-fluid rounded shadow">
             </div>
 
             <div class="col-md-8">
-              <h1>Hi, I'm Joshua 👋</h1>
+              <h1>Hi, I'm <span>Joshua Christian</span> 👋</h1>
               <h2>Full Stack Web Developer</h2>
 
               <p>
@@ -131,6 +148,13 @@
               <p class="tech">
                 React • JavaScript • PHP • MySQL • Tailwind • Bootstrap
               </p>
+              <div class="mt-3 d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+                <a href="#projects" class="btn btn-primary me-2">View Projects</a>
+                <a href="#contact" class="btn btn-primary me-2">Contact Me</a>
+                <a href="CV_Joshua Christian_English.pdf" class="btn btn-primary me-2" download>
+                  Download CV
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -138,12 +162,20 @@
         <!-- Skills -->
         <section id="skills" class="mb-5">
           <h2>Skills</h2>
-          <ul>
-            <li>HTML, CSS, JavaScript, PHP</li>
-            <li>Bootstrap, Tailwind</li>
-            <li>React, Vue</li>
-            <li>Node.js, Express, MySQL, GIT</li>
-          </ul>
+          <div class="skills fs-4">
+            <span class="badge bg-primary">HTML</span>
+            <span class="badge bg-primary">CSS</span>
+            <span class="badge bg-primary">JavaScript</span>
+            <span class="badge bg-primary">React</span>
+            <span class="badge bg-primary">Node.js</span>
+            <span class="badge bg-primary">MySQL</span>
+            <span class="badge bg-primary">PHP</span>
+            <span class="badge bg-primary">Bootstrap</span>
+            <span class="badge bg-primary">Tailwind</span>
+            <span class="badge bg-primary">GIT</span>
+            <span class="badge bg-primary">Express</span>
+            <span class="badge bg-primary">Vue</span>
+          </div>
         </section>
 
         <!-- Projects -->
@@ -152,9 +184,9 @@
 
           <!-- Filter -->
           <div class="mb-4">
-            <button class="btn btn-outline-dark filter-btn active" data-filter="all">Everything</button>
-            <button class="btn btn-outline-dark filter-btn" data-filter="web">Web</button>
-            <button class="btn btn-outline-dark filter-btn" data-filter="other">Other</button>
+            <button class="btn btn-outline-light filter-btn active" data-filter="all">Everything</button>
+            <button class="btn btn-outline-light filter-btn" data-filter="web">Web</button>
+            <button class="btn btn-outline-light filter-btn" data-filter="other">Other</button>
           </div>
 
           <!-- Grid -->
@@ -197,14 +229,47 @@
                 </div>
               </div>
             </div>
+          
+ 
+            <!-- Project 4 -->
+            <div class="col-12 col-sm-6 col-lg-4 project-item web">
+              <div class="project-card shadow h-100">
+                <div class="ratio ratio-16x9">
+                  <img src="movie-app.jpg" alt="Project 4">
+                </div>
+                <div class="overlay">
+                  <h5>Web - Movie App</h5>
+                  <button class="btn btn-light mt-2" data-bs-toggle="modal" data-bs-target="#project4Modal">View More</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col-12 col-sm-6 col-lg-4 project-item web">
+              <div class="project-card shadow h-100">
+                <div class="ratio ratio-16x9">
+                  <img src="admin-dashboard.jpg" alt="Project 5">
+                </div>
+                <div class="overlay">
+                  <h5>Web - Admin Dashboard</h5>
+                  <button class="btn btn-light mt-2" data-bs-toggle="modal" data-bs-target="#project5Modal">View More</button>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
+      </section>
 
         <!-- Contact -->
         <section id="contact">
-          <h2>Contact</h2>
-          <a href="mailto:joshua.christian000@gmail.com"><p class="fs-4"><i class="material-icons">email</i>joshua.christian000@gmail.com</p></a>
-          <a href="https://www.linkedin.com/in/joshua-christian-b42aa61b2/"><i class="fa fa-linkedin-square fs-4"> Joshua Christian</i></a>
+          <div class="card text-center">
+            <div class="card-header">
+              <h2>Contact</h2>
+            </div>
+            <div class="card-body">
+              <a href="mailto:joshua.christian000@gmail.com"><p class="fs-4"><i class="material-icons">email</i>joshua.christian000@gmail.com</p></a>
+              <a href="https://www.linkedin.com/in/joshua-christian-b42aa61b2/"><i class="fa fa-linkedin-square fs-4"> Joshua Christian</i></a> 
+            </div>
+          </div>
         </section>
       </main>
     </div>
@@ -221,10 +286,11 @@
             Website e-commerce sederhana yang menampilkan berbagai produk gaming peripherals seperti mouse, keyboard, dan headset. 
             Dibangun menggunakan PHP dan MySQL dengan fitur CRUD (Create, Read, Update, Delete) untuk mengelola berita dan gallery. 
             Website ini dilengkapi halaman berita, halaman gallery, detail produk, serta sistem login sederhana.
-          </p> 
+          </p>
+          <p><strong>Tech Stack:</strong> PHP, MySQL, Bootstrap</p> 
         </div>
         <div class="modal-footer">
-          <a href="https://github.com/JoshuaChristian000/web-gaming-peripherals.git" target="_blank" class="btn btn-primary">Visit</a>
+          <a href="https://github.com/JoshuaChristian000/web-gaming-peripherals.git" target="_blank" class="btn btn-primary">Github Repository</a>
           <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
@@ -246,9 +312,10 @@
             Aplikasi ini mengonsumsi data dari <strong>Weather API</strong> untuk menampilkan informasi cuaca secara real-time, termasuk suhu, kelembaban, dan kondisi atmosfer.  
             Seluruh tampilan dibuat menggunakan <strong>custom CSS</strong> tanpa framework UI seperti Bootstrap, sehingga desain lebih ringan, fleksibel, dan dapat dengan mudah disesuaikan.
           </p>
+          <p><strong>Tech Stack:</strong> React, JavaScript, Vite, REST API (Weather API), CSS</p>
         </div>
         <div class="modal-footer">
-          <a href="https://weather-app-react-vite-3t11drv0w-joshuas-projects-5c16d142.vercel.app/" target="_blank" class="btn btn-primary">Visit</a>
+          <a href="https://weather-app-react-vite-3t11drv0w-joshuas-projects-5c16d142.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
           <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
@@ -271,14 +338,67 @@
             Fitur utama meliputi menambah, menghapus, serta mengatur prioritas tugas dengan memindahkan task ke atas atau bawah.  
             Tampilan dirancang dengan <strong>custom CSS</strong> sehingga sederhana, ringan, dan mudah digunakan.
           </p>
+          <p><strong>Tech Stack:</strong> React, JavaScript, Vite, React Hooks (useState), CSS</p>
         </div>
         <div class="modal-footer">
-          <a href="https://todo-app-react-vite-5epzyctvr-joshuas-projects-5c16d142.vercel.app/" target="_blank" class="btn btn-primary">Visit</a>
+          <a href="https://todo-app-react-vite-5epzyctvr-joshuas-projects-5c16d142.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
+
+    <div class="modal fade" id="project4Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Web - Movie App</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="movie-app.jpg" class="img-fluid mb-3 rounded" alt="To Do App Screenshot">
+          <p>
+            Movie App ini dibuat menggunakan <strong>React</strong> dan memanfaatkan <strong>Movie API</strong> untuk menampilkan daftar film secara dinamis. 
+            Pengguna dapat mencari film dan melihat detail informasi seperti rating, deskripsi, serta poster film. 
+            Aplikasi ini menggunakan <strong>REST API</strong> untuk mengambil data secara real-time dan dirancang dengan tampilan yang responsif.
+          </p>
+          <p><strong>Tech Stack:</strong> React, JavaScript, REST API, CSS</p>
+        </div>
+        <div class="modal-footer">
+          <a href="https://movie-app-nu-pied.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="modal fade" id="project5Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Web - Admin Dashboard</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="admin-dashboard.jpg" class="img-fluid mb-3 rounded" alt="To Do App Screenshot">
+          <p>
+            Admin Dashboard ini adalah aplikasi web berbasis <strong>React</strong> yang digunakan untuk menampilkan dan mengelola data pengguna melalui dashboard yang interaktif. 
+            Aplikasi ini mengambil data dari REST API dan memungkinkan pengguna untuk menambahkan serta menghapus data pengguna. 
+            Data tambahan yang dibuat oleh pengguna disimpan menggunakan <strong>localStorage</strong> agar tetap tersedia setelah halaman direfresh. 
+            Tampilan antarmuka dibangun menggunakan <strong>Tailwind CSS</strong> dan <strong>DaisyUI</strong> untuk menghasilkan UI dashboard yang modern, responsif, dan mudah digunakan.
+          </p>
+          <p>
+          <strong>Tech Stack:</strong> React, JavaScript, Tailwind CSS, DaisyUI, REST API, LocalStorage
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a href="https://admin-dashboard-hpvfjfy2z-joshuas-projects-5c16d142.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
   <!-- JS -->
