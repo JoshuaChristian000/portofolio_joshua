@@ -9,19 +9,19 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body {
-      background-color: #0D1117; /* Background utama */
-      background: linear-gradient(180deg,#0D1117,#020617);
-      color: #E6EDF3; /* Text utama */
+      background-color: #F8F5F0; /* Background utama */
+      background: linear-gradient(180deg,#F8F5F0, #EFE7DC);
+      color: #2D2D2D; /* Text utama */
       font-family: 'Poppins', sans-serif;
     }
     .navbar{
-      background-color:#161B22 !important;
+      background-color:#dbcbb3 !important;
     }
     .nav-link{
-      color: white !important;
+      color: #2d2d2d !important;
     }
     .nav-link:hover{
-      color: #3b58ff !important;
+      color: #A47148 !important;
     }
     h1 span{
       color:#58A6FF;
@@ -44,19 +44,25 @@
     .project-card {
       position: relative;
       overflow: hidden;
-      border-radius: 15px;
       transition: transform 0.3s ease-in-out;
-      background:#161B22;
+      border-radius: 15px;
       border:none;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
     }
     .project-card img {
       width: 100%;
       border-radius: 15px;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;  
     }
     .project-card:hover img {
       /* transform: scale(1.05); */
-      transform:translateY(-10px);
+      /* transform:translateY(-10px); */
+      transform: scale(1.05);
       box-shadow:0 15px 35px rgba(88,166,255,0.25);
     }
     .project-img {
@@ -69,7 +75,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(91, 44, 232, 0.9);
+      background: rgba(45, 45, 45, 0.5);
       color: #fff;
       display: flex;
       align-items: center;
@@ -80,35 +86,126 @@
       flex-direction: column;
       text-align: center;
       padding: 20px;
+      backdrop-filter: blur(2px);
     }
     .project-card:hover .overlay {
       opacity: 1;
     }
+    .project-btn {
+      background-color: #f7d8c4;
+      color: #2D2D2D;
+      border-radius: 6px;
+      padding: 8px 16px;
+      transition: all 0.25s ease;
+      border: none;
+    }
+    .project-btn:hover {
+      background-color: #E8A87C;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+      transform: translateY(-2px) scale(1.03);
+    }
     .filter-btn {
       margin: 5px;
     }
+    .modal-header {
+      border-bottom: 1px solid #E0D6C8;
+      background-color: #F1EAE0;
+    }
+    .modal-title {
+      color: #2D2D2D;
+      font-weight: 600;
+    }
+    .modal-body {
+      color: #4A4A4A;
+      line-height: 1.6;
+    }
+    .modal-body img {
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
     .modal-body p {
-    text-align: justify;
-    text-justify: inter-word; 
+      text-align: justify;
+      text-justify: inter-word; 
     }
     .modal-content{
-      background:#161B22;
-      color:#E6EDF3;
-      border:none;
+      background: #F8F5F0;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+    .modal-footer {
+      border-top: 1px solid #E0D6C8;
+      padding: 16px 24px;
     }
     #contact .card{
-      background:#161B22;
-      color:#E6EDF3;
+      background:#F1EAE0;
+      color:#050505;
       border:none;
       margin:auto;
-      }
-  </style>
+      box-shadow: 10px 20px 50px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background-color: #E8A87C;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #D08770;
+    }
+    .badge {
+      background-color: #E8A87C;
+      border: none;
+    }
+    .filter-btn {
+      background-color: transparent;
+      color: #6B6B6B;
+      border: 1px solid #D6CCC2;
+      border-radius: 10px;
+      padding: 6px 14px;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      background-color: #EFE7DC;
+      color: #2D2D2D;
+    }
+    .filter-btn.active {
+      background-color: #E8A87C;
+      color: white;
+      border: none;
+    }
+    .tech-stack span {
+      background-color: #EFE7DC;
+      color: #2D2D2D;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-right: 6px;
+      font-size: 12px;
+    }
+    #contact a {
+      color: #A47148;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 8px 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    #contact a:hover {
+      background-color: #E8A87C;
+      color: white;
+    }
+    #contact p {
+      margin: 6px 0;
+    }
+    </style>
 </head>
 <body>
   <div class="container-fluid">
     <div class="row">
       <!-- NavBar -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+      <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">My Portfolio</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -163,18 +260,18 @@
         <section id="skills" class="mb-5">
           <h2>Skills</h2>
           <div class="skills fs-4">
-            <span class="badge bg-primary">HTML</span>
-            <span class="badge bg-primary">CSS</span>
-            <span class="badge bg-primary">JavaScript</span>
-            <span class="badge bg-primary">React</span>
-            <span class="badge bg-primary">Node.js</span>
-            <span class="badge bg-primary">MySQL</span>
-            <span class="badge bg-primary">PHP</span>
-            <span class="badge bg-primary">Bootstrap</span>
-            <span class="badge bg-primary">Tailwind</span>
-            <span class="badge bg-primary">GIT</span>
-            <span class="badge bg-primary">Express</span>
-            <span class="badge bg-primary">Vue</span>
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">React</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">PHP</span>
+            <span class="badge">Bootstrap</span>
+            <span class="badge">Tailwind</span>
+            <span class="badge">GIT</span>
+            <span class="badge">Express</span>
+            <span class="badge">Vue</span>
           </div>
         </section>
 
@@ -184,9 +281,9 @@
 
           <!-- Filter -->
           <div class="mb-4">
-            <button class="btn btn-outline-light filter-btn active" data-filter="all">Everything</button>
-            <button class="btn btn-outline-light filter-btn" data-filter="web">Web</button>
-            <button class="btn btn-outline-light filter-btn" data-filter="other">Other</button>
+            <button class="btn filter-btn active" data-filter="all">Everything</button>
+            <button class="btn filter-btn" data-filter="web">Web</button>
+            <button class="btn filter-btn" data-filter="other">Other</button>
           </div>
 
           <!-- Grid -->
@@ -199,7 +296,7 @@
                 </div>
                 <div class="overlay">
                   <h5>Web - Gaming Peripherals</h5>
-                  <button class="btn btn-light mt-2" data-bs-toggle="modal" data-bs-target="#project1Modal">View More</button>
+                  <button class="btn project-btn mt-2" data-bs-toggle="modal" data-bs-target="#project1Modal">View More</button>
                 </div>
               </div>
             </div>
@@ -212,7 +309,7 @@
                 </div>
                 <div class="overlay">
                   <h5>Web - Weather App</h5>
-                  <button class="btn btn-light mt-2" data-bs-toggle="modal" data-bs-target="#project2Modal">View More</button>
+                  <button class="btn project-btn mt-2" data-bs-toggle="modal" data-bs-target="#project2Modal">View More</button>
                 </div>
               </div>
             </div>
@@ -225,7 +322,7 @@
                 </div>
                 <div class="overlay">
                   <h5>Web - To Do App</h5>
-                  <button class="btn btn-light mt-2" data-bs-toggle="modal" data-bs-target="#project3Modal">View More</button>
+                  <button class="btn project-btn mt-2" data-bs-toggle="modal" data-bs-target="#project3Modal">View More</button>
                 </div>
               </div>
             </div>
@@ -239,7 +336,7 @@
                 </div>
                 <div class="overlay">
                   <h5>Web - Movie App</h5>
-                  <button class="btn btn-light mt-2" data-bs-toggle="modal" data-bs-target="#project4Modal">View More</button>
+                  <button class="btn project-btn mt-2" data-bs-toggle="modal" data-bs-target="#project4Modal">View More</button>
                 </div>
               </div>
             </div>
@@ -252,7 +349,7 @@
                 </div>
                 <div class="overlay">
                   <h5>Web - Admin Dashboard</h5>
-                  <button class="btn btn-light mt-2" data-bs-toggle="modal" data-bs-target="#project5Modal">View More</button>
+                  <button class="btn project-btn mt-2" data-bs-toggle="modal" data-bs-target="#project5Modal">View More</button>
                 </div>
               </div>
             </div>
@@ -287,7 +384,11 @@
             Dibangun menggunakan PHP dan MySQL dengan fitur CRUD (Create, Read, Update, Delete) untuk mengelola berita dan gallery. 
             Website ini dilengkapi halaman berita, halaman gallery, detail produk, serta sistem login sederhana.
           </p>
-          <p><strong>Tech Stack:</strong> PHP, MySQL, Bootstrap</p> 
+          <div class="tech-stack">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>Bootstrap</span>
+          </div>
         </div>
         <div class="modal-footer">
           <a href="https://github.com/JoshuaChristian000/web-gaming-peripherals.git" target="_blank" class="btn btn-primary">Github Repository</a>
@@ -312,7 +413,13 @@
             Aplikasi ini mengonsumsi data dari <strong>Weather API</strong> untuk menampilkan informasi cuaca secara real-time, termasuk suhu, kelembaban, dan kondisi atmosfer.  
             Seluruh tampilan dibuat menggunakan <strong>custom CSS</strong> tanpa framework UI seperti Bootstrap, sehingga desain lebih ringan, fleksibel, dan dapat dengan mudah disesuaikan.
           </p>
-          <p><strong>Tech Stack:</strong> React, JavaScript, Vite, REST API (Weather API), CSS</p>
+          <div class="tech-stack">
+            <span>React</span>
+            <span>JavaScript</span>
+            <span>Vite</span>
+            <span>REST API (Weather API)</span>
+            <span>CSS</span>
+          </div>
         </div>
         <div class="modal-footer">
           <a href="https://weather-app-react-vite-3t11drv0w-joshuas-projects-5c16d142.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
@@ -338,7 +445,13 @@
             Fitur utama meliputi menambah, menghapus, serta mengatur prioritas tugas dengan memindahkan task ke atas atau bawah.  
             Tampilan dirancang dengan <strong>custom CSS</strong> sehingga sederhana, ringan, dan mudah digunakan.
           </p>
-          <p><strong>Tech Stack:</strong> React, JavaScript, Vite, React Hooks (useState), CSS</p>
+          <div class="tech-stack">
+            <span>React</span>
+            <span>JavaScript</span>
+            <span>Vite</span>
+            <span>React Hooks (useState)</span>
+            <span>CSS</span>
+          </div>
         </div>
         <div class="modal-footer">
           <a href="https://todo-app-react-vite-5epzyctvr-joshuas-projects-5c16d142.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
@@ -362,7 +475,12 @@
             Pengguna dapat mencari film dan melihat detail informasi seperti rating, deskripsi, serta poster film. 
             Aplikasi ini menggunakan <strong>REST API</strong> untuk mengambil data secara real-time dan dirancang dengan tampilan yang responsif.
           </p>
-          <p><strong>Tech Stack:</strong> React, JavaScript, REST API, CSS</p>
+          <div class="tech-stack">
+            <span>React</span>
+            <span>JavaScript</span>
+            <span>REST API</span>
+            <span>CSS</span>
+          </div>
         </div>
         <div class="modal-footer">
           <a href="https://movie-app-nu-pied.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
@@ -387,9 +505,14 @@
             Data tambahan yang dibuat oleh pengguna disimpan menggunakan <strong>localStorage</strong> agar tetap tersedia setelah halaman direfresh. 
             Tampilan antarmuka dibangun menggunakan <strong>Tailwind CSS</strong> dan <strong>DaisyUI</strong> untuk menghasilkan UI dashboard yang modern, responsif, dan mudah digunakan.
           </p>
-          <p>
-          <strong>Tech Stack:</strong> React, JavaScript, Tailwind CSS, DaisyUI, REST API, LocalStorage
-          </p>
+          <div class="tech-stack">
+            <span>React</span>
+            <span>JavaScript</span>
+            <span>Tailwind CSS</span>
+            <span>DaisyUI</span>
+            <span>REST API</span>
+            <span>LocalStorage</span>
+          </div>
         </div>
         <div class="modal-footer">
           <a href="https://admin-dashboard-hpvfjfy2z-joshuas-projects-5c16d142.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
